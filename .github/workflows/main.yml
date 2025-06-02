@@ -1,4 +1,23 @@
-- name: Check website access
-  run: python check.py
-  env:
-    TARGET_URL: https://canadabuys.canada.ca/en/tender-opportunities?status%5B0%5D=87&status%5B1%5D=1920
+name: Check Website Access
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run access check
+        run: python check.py https://canadabuys.canada.ca/en/tender-opportunities?status%5B0%5D=87&status%5B1%5D=1920
