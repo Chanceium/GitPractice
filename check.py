@@ -1,11 +1,11 @@
-import os
-import requests
 import sys
+import requests
 
-url = os.getenv("TARGET_URL")
-if not url:
-    print("Please set the TARGET_URL environment variable.")
+if len(sys.argv) != 2:
+    print("Usage: python check.py <url>")
     sys.exit(1)
+
+url = sys.argv[1]
 
 headers = {
     "User-Agent": "Mozilla/5.0 (compatible; GitHubActions/1.0)"
