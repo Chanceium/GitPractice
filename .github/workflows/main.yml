@@ -1,4 +1,4 @@
 - name: Check website access
-  run: python check_access.py
+  run: python check.py
   env:
     TARGET_URL: https://canadabuys.canada.ca/en/tender-opportunities?status%5B0%5D=87&status%5B1%5D=1920
